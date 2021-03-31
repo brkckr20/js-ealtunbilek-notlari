@@ -28,3 +28,5 @@ const yeniDiziWithReduce = sayilar.reduce(function (dizininOncekiHali,oAnkiSayi)
 },[]);
 
 console.log(yeniDiziWithReduce);
+
+
