@@ -27,10 +27,30 @@
 </head>
 <body>
     <div class="container">
+        <form action="https://www.google.com" method="POST" id="myForm">
+            <input type="text" id="ad" placeholder="adınız">
+            <br>
+            <select name="sehir" id="sehir">
+                <option value="1">Bursa</option>
+                <option value="2">İzmir</option>
+            </select>
+            <button type="button">Normal Buton</button>
+            <button type="reset">Temizle</button>
+            <button type="submit">Gönder</button>
+        </form>
         <a href="#" class="link">Blog Sitem</a>
         <p class="yazi">Merhaba</p>
     </div>
 
-<script src="event-kavrami-ve-mouse-eventleri.js"></script>
+    <div class="parent">
+        <div class="child">
+            <h3 class="item child-item">Merhaba</h3>
+            <h3 class="item child-item">Merhaba</h3>
+            <h3 class="item child-item">Merhaba</h3>
+            <h3 class="item child-item">Merhaba</h3>
+        </div>
+    </div>
+
+<script src="event-bubbling-ve-delegation-kavramlari.js"></script>
 </body>
 </html>
