@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rehber</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Rehber</h1>
+        <div class="bilgi bilgi--success">Başarılı</div>
+        <div class="bilgi bilgi--error">Hata Oluştu</div>
+
+        <form action="" id="rehber">
+            <div>
+                <label for="ad">Adı : </label>
+                <input type="text" id="ad" class="u-full-width">
+            </div>
+            <div>
+                <label for="soyad">Soyadı : </label>
+                <input type="text" id="soyad" class="u-full-width">
+            </div>
+            <div>
+                <label for="mail">Email : </label>
+                <input type="email" id="mail" class="u-full-width">
+            </div>
+            <div class="text-aling-center">
+                <input type="submit" class="button-primary" value="Kaydet">
+            </div>
+        </form>
+
+        <hr>
+
+        <table class="u-full-width">
+            <thead>
+                <tr>
+                    <th>Ad</th>
+                    <th>Soyad</th>
+                    <th>Email</th>
+                    <th>İşlem</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Burak</td>
+                    <td>Çakır</td>
+                    <td>mail@mailim.com</td>
+                    <td>
+                        <button class="btn btn--edit"><i class="fas fa-user-edit"></i></button>
+                        <button class="btn btn--delete"><i class="fas fa-trash-alt"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    
+
+
+
+
+    <script src="js/app.js"></script>
+</body>
+</html>

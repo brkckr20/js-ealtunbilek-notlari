@@ -1,0 +1,30 @@
+.text-aling-center{
+    text-align: center;
+}
+.btn
+{
+    border: 0;
+    outline: none;
+    padding: 0;
+    font-size: 2rem;
+}
+.btn--edit{
+    color: green;
+}
+.btn--delete{
+    color: red;
+}
+.bilgi{
+    margin:1rem 0rem;
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 5px;
+    color: black;
+    font-weight: 500;
+}
+.bilgi--success{
+    border: 1px solid green;
+}
+.bilgi--error{
+    border: 1px solid red;
+}
