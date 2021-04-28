@@ -28,3 +28,7 @@
 .bilgi--error{
     border: 1px solid red;
 }
+.far,
+.fas{
+    pointer-events: none;
+}
