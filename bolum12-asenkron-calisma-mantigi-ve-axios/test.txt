@@ -1,0 +1,2 @@
+burası okunacak olan metin
+iç sayfadan çağırılıcak
