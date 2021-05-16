@@ -1,0 +1,8 @@
+* webpack kurulumu
+npm init -y ile sorulan soruları es geçerek varsayılan kurulu yaptırabiliriz.
+
+* webpack dahil edilmesi
+npm install webpack --save-dev
+
+* webpack cli kurulumu sondaki -D developmentin ilk harfi
+npm install webpack-cli -D

@@ -1,0 +1,12 @@
+-parcel kurulumu   npm install -g parcel-bundler
+
+npm init -y ---- ile npm init edilirse tüm ayarlar default olarak eklenir.
+
+parcel -h --- parcel de bulunan yardımcı komutlara erişmek için kullanılır.
+
+package.json içerisindeki ayarlamalar
+scripts altında dev adında bir anahtar değer oluşturuldu ve ve npm run komutundan sonra dev komutu eklenerek o scriptin çalışması sağlandı.
+package json incele
+
+
+npm run dev ile çalıştırılır.

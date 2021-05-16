@@ -1,0 +1,15 @@
+{
+  "name": "parcel-deneme",
+  "version": "1.0.0",
+  "description": "parcel deneme uygulaması",
+  "main": "main.js",
+  "scripts": {
+    "dev": "parcel serve ./src/index.html",
+    "prod": "parcel build ./src/index.html"
+  },
+  "author": "Burak Çakır",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.32.12"
+  }
+}

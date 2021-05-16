@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Axios Kullanımı</title>
     <link rel="stylesheet" href="bulma.min.css">
 </head>
+
 <body>
     <div class="hero is-dark is-bold">
         <div class="container">
             <div class="block"></div>
-           <div class="block">
-               <h1 class="title has-text-centered">Axios</h1>
-           </div>
+            <div class="block">
+                <h1 class="title has-text-centered">Axios</h1>
+            </div>
             <div class="block">
                 <div class="buttons is-centered">
                     <button class="button is-primary is-outlined" id="get">GET</button>
                     <button class="button is-warning is-outlined" id="post">POST</button>
                     <button class="button is-danger is-outlined" id="put-patch">PUT/PATCH</button>
+                    <button class="button is-success is-outlined" id="delete">DELETE</button>
                     <button class="button is-white is-outlined" id="ayni-anda-istek">AYNI ANDA ISTEK</button>
                     <button class="button is-info is-outlined" id="headers">HEADERS</button>
                     <button class="button is-success is-outlined" id="hata">HATA</button>
@@ -36,7 +39,7 @@
     </div>
 
 
-<!--    <div class="section">
+    <!--    <div class="section">
         <div class="container">
             <article class="message is-success">
                 <div class="message-header">
@@ -76,7 +79,8 @@
     </div>-->
 
 
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script type="module" defer src="axios-kullanimi.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" defer src="axios-kullanimi.js"></script>
 </body>
+
 </html>
