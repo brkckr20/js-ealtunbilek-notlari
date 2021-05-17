@@ -17,17 +17,29 @@ module.exports = merge(common, { //merge metodu dahil edildi. ayarları yapmadan
             path : path.resolve(__dirname,'dist')
         },*/ //webpack.common.js den gelicek
     mode: 'development',
-    /*module : {
+    output: {
+        filename: "[name].bundle.js",
+        path: path.resolve(__dirname,"dist")
+    },
+    module : {
         rules : [
             {
                 test : /\.css$/i, //css uzantısı ile biten bir dosya görürsen aşağıdaki komutları çalıştır.
                 use : ['style-loader','css-loader']
+            },
+            {
+                test: /\.s[ac]ss$/i,
+                use : [
+                    'style-loader',
+                    'css-loader',
+                    'saas-loader'
+                ]
             }
         ]
-    },*/  //commondan geleceği için yorum satırına alındı.
+    },  //commondan geleceği için yorum satırına alındı.
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/index.html'
+            template: './src/index.html',
         })], //parametre verilmezse dist içerisinde kendisi default olarak bir html sayfası oluşturur.
 });
 

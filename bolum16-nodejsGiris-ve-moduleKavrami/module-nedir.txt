@@ -1,0 +1,10 @@
+** JS BAZI YAPILARA DİREKT ERİSİP KULLANABİLİRİZ. BUNLARA GLOBAL OBJECTS DENIR
+    - console.log, settimeout, cleartimeout, setinterval, clearinterval
+
+** BROWSERDEKI JS DE TUM DEĞİŞKENLERİ FONKSİYONLARI EKRANI BARINDIRAN WİNDOW İSİMLİ GLOBAL BİR NESNE VARDIR. window.console.log
+    - bu yapının node da bir tanımı yoktur. karşılığı ise Global dir.
+
+** NODEJS UYGULAMALARINDA HER BIR JS DOSYASI BİR MODÜLDÜR. BU MODULDE TANIMLANAN TÜM DEĞİŞKEN VE FONKSİYONLAR BU DOSYAYA ÖZELDİR.
+    - Yani private. Bunlari erişilebilir yapmak bizim elimizdedir.
+
+** console.log(module) -> ilgili dosyayla ilgili tüm detayları verir.
