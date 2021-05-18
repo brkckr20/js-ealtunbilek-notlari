@@ -1,0 +1,1 @@
+Toplam ram : 5.86, kullanılan rams : 5.01, boş ram : 0.85, cpu sayisi : 4
