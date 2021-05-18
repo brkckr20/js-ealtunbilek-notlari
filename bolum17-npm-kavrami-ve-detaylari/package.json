@@ -1,0 +1,16 @@
+{
+  "name": "npm-detaylari",
+  "version": "1.0.0",
+  "description": "burasi aciklama kismi",
+  "main": "npm-komutlari.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "keywords": [],
+  "dependencies": {
+    "express": "^4.17.1",
+    "underscore": "^1.13.1"
+  }
+}
