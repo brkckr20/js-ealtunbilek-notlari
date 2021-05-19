@@ -4,13 +4,15 @@
   "description": "burasi aciklama kismi",
   "main": "npm-komutlari.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js --help"
   },
   "author": "",
   "license": "MIT",
   "keywords": [],
   "dependencies": {
-    "express": "^4.17.1",
-    "underscore": "^1.13.1"
-  }
+    "chalk": "^4.0.0",
+    "yargs": "^15.3.1"
+  },
+  "devDependencies": {}
 }

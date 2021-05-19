@@ -1,0 +1,24 @@
+"dependencies": {
+    "express": "^4.17.1",  - birinci sayı major, ikinci sayı minör ve üçüncü sayı patchtir.
+
+    ^ -> işareti major ve minör değişikliklerin en yüksek versiyonlarını hedef alır.
+    ~ -> işareti ise patcheki değişikliklerin en yüksek versiyonlarini hedef alır.
+
+
+    major - köklü değişiklik olursa değiştirilir.
+    minör - orta değişiklikler yapılırsa değiştirilir.
+    patch - yeni bir metot eklenir - silinirse değiştirilir.
+
+npm view paket_adi versions -> tüm versiyonlari gösterir.
+npm outdated -> güncelliğini yitirmiş paketler hakkında bilgi verir.
+npm install paket_adi@yuklenecek olan sürüm -> ilgili versiyon numarasına göre yükleme. Örn : npm install mongoose@1.1.1 gibi
+npm update -> işlem yapılan modülün en son versiyonuna günceller. (minör olarak günceller)
+npm uninstall paket_adi -> ilgili paketi siler (npm un paket_adi aynı işi yapar.)
+npm install paket_adi --save-dev -> ilgili paketi developer gerekliliği olarak yükler. programın çalışmasından ziyade developera yardımcı olması için vardır
+npm install paket_adi -D -> npm install paket_adi --save-dev ile aynı işi yapar.
+npm install -g paket_adi -> ilgili paketi o an çalışılan dosyaya değil de global olarak yükler.
+nodemon modul_adi -> çalıştırılınca ilgili dosyada değişiklik yapılığında ilgili değişiklik hemen yansır. yani sürekli olarak sunucu kapat başlat çalıştır.
+npm uninstall -g paket_adi -> global olarak siler.
+
+
+node modul_adi.js --ekle isim=burak -> komut satırından parametre olarak değer gönderme
