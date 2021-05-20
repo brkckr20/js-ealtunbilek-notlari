@@ -1,17 +1,18 @@
 console.log("Program başladı...");
 
-
+//callback hell -- callback cehennemi
 getUser(123,(userObject)=>{ //bizim callback imiz bir obje döndürüyor.
-    console.log("Getirilen kullanıcı : " + userObject.ad);
+  //  console.log("Getirilen kullanıcı : " + userObject.ad);
     getCourse(userObject.ad,(kursDizisi)=>{
-        console.log("Kursları :  " + kursDizisi);
+  //      console.log("Kursları :  " + kursDizisi);
+        getComment(kursDizisi[0]);
     });
 });
 
 
 function getUser(id,callback) {  //ismi callback olması zorunlu değildir.
+    console.log(id + " id'li user getiriliyor.");
     setTimeout(() => {
-        console.log(id + " id'li user getiriliyor.");
         callback({ //çalışması için return edilmesi gereken ifade belirlemiş olduğumuz callback metodu içerisinde tanımlanmalıdır.
             id : id,
             ad : "Burak Çakır"
@@ -20,14 +21,20 @@ function getUser(id,callback) {  //ismi callback olması zorunlu değildir.
 }
 
 function getCourse(username,callback) {  
+    console.log(username+ " adlı kişinin kursları getirilecek");
     setTimeout(() => {
-        console.log(username+ " adlı kişinin kursları getirilecek");
         callback(
             ['Java','Flutter','Kotlin']
         );
     }, 2000);
 }
 
+function getComment(kursAdi) {  
+    console.log(kursAdi + ' isimli kursun yorumları getiriliyor.');
+    setTimeout(() => {
+        console.log("Harika bir kurs");
+    }, 2000);
+}
 
 
 /***
