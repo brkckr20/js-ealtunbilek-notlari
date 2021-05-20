@@ -1,0 +1,2 @@
+npm whoami -> sisteme giris yapılmış ise o kullanıcının bilgilerini döndürür.
+npm login -> sırasıyla kullanıcı adı ve şifresi ile sisteme giris yapılır.
