@@ -1,2 +1,9 @@
-npm whoami -> sisteme giris yapılmış ise o kullanıcının bilgilerini döndürür.
-npm login -> sırasıyla kullanıcı adı ve şifresi ile sisteme giris yapılır.
+* npm whoami -> sisteme giris yapılmış ise o kullanıcının bilgilerini döndürür.
+* npm login -> sırasıyla kullanıcı adı ve şifresi ile sisteme giris yapılır.
+* paketimizi publish ettiğimizde sadece export ettiğimiz alanlara ulaşılır. o yüzden paketimizi bir fonksiyon içerisine yazarak export etmek mantıklı olacaktır.
+* npm publish ile paketimizi npm'e yukleyebiliriz. Eğer aynı isimde paket var ise hata verecektir.
+* npm'e yüklemiş olduğumuz paketi package.jsonu olan bir klasöre ilgili kodları yazarak indirebiliriz.
+* paket guncelleme
+    - paket numarası aynı olduğu için istersek package.json daki versiyonu elle değiştirebilir,
+      yada npm version major/minor/patch (değişikliğin boyutuna göre değişir) yazarak değiştirilebilir.
+    - ilgili değişiklikleri yaptıktan sonra tekrar npm publish diyerek güncel halini npm'e yükleyebiliriz.
