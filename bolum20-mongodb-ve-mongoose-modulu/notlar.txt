@@ -1,0 +1,6 @@
+** kurulumlar tamamlandıktan sonra
+ - komut satırından mongo yazdıktan sonra mongodb ye erişilebilir.
+ - show dbs komutu ile o server da kullanılan database isimleri görülebilir.
+ - use tablo_adi - o tabloyu kullanmamıza yarar
+ - show collections - collectionları (tablo) ları görmemizi sağlar.
+ 
