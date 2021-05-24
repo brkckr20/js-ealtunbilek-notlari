@@ -3,4 +3,6 @@
  - show dbs komutu ile o server da kullanılan database isimleri görülebilir.
  - use tablo_adi - o tabloyu kullanmamıza yarar
  - show collections - collectionları (tablo) ları görmemizi sağlar.
+ - eğer bilgisayar açıldığında mongodb'ye bağlanılmada hata alıyorsak hizmetlerden mongodb servisi çalışıp
+   çalışmadığı kontrol edilmelidir.
  
