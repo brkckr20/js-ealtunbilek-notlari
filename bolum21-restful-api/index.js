@@ -1,5 +1,6 @@
 const express = require('express');
 require('./db/dbConnection');
+const hataMiddleware = require('./middleware/hataMiddleware');
 
 const userRouter = require('./router/userRouter');
 
@@ -25,6 +26,8 @@ app.get('/',(req,res) => {
 app.post('/',(req,res) => {
     res.status(200).json(req.body)
 }); */
+
+app.use(hataMiddleware);
 
 
 app.listen(3000, () => {

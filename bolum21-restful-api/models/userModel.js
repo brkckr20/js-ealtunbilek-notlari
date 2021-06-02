@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const Joi = require('@hapi/joi');
 
 UserSchema = new Schema({
     isim : {
@@ -31,6 +32,18 @@ UserSchema = new Schema({
     }
 },{collection : 'kullanicilar', timestamps : true });
 
+
+UserSchema.methods.joiValidation = function(userObject){
+
+    const schema = Joi.object({
+        isim : Joi.string().min(3).max(30).trim().required(),
+        userName : Joi.string().min(3).max(50).trim().required(),
+        email : Joi.string().trim().email().required(),
+        sifre : Joi.string().trim().required(),
+    });
+
+    return schema.validate(userObject);
+}
 const User = mongoose.model('User',UserSchema);
 
 module.exports = User;
