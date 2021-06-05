@@ -32,18 +32,43 @@ UserSchema = new Schema({
     }
 },{collection : 'kullanicilar', timestamps : true });
 
+    //birden fazla kez kullanıldığı için teke düşürüldü...
+const schema = Joi.object({
+    isim : Joi.string().min(3).max(30).trim(),
+    userName : Joi.string().min(3).max(50).trim(),
+    email : Joi.string().trim().email(),
+    sifre : Joi.string().trim(),
+});
 
+
+//yeni user eklerken kullanılır
 UserSchema.methods.joiValidation = function(userObject){
 
-    const schema = Joi.object({
-        isim : Joi.string().min(3).max(30).trim().required(),
-        userName : Joi.string().min(3).max(50).trim().required(),
-        email : Joi.string().trim().email().required(),
-        sifre : Joi.string().trim().required(),
-    });
+    schema.required(); // yukarıdad kullanılan schemadaki tüm alanların gerekli olduğunun belirtilmesi
 
     return schema.validate(userObject);
 }
+
+
+//eklenme ve güncelleme işlemleri sırasında bu alanların kullanıcıya geri gönderilmesini engelledik 
+UserSchema.methods.toJSON = function(){
+    const user = this.toObject();
+    delete user._id;
+    delete user.sifre;
+    delete user.createdAt;
+    delete user.updatedAt;
+    delete user.__v;
+
+    return user;
+}
+
+
+//update etme işleminde kullanılır
+UserSchema.statics.joiValidationForUpdate = function(userObject){
+
+    return schema.validate(userObject);
+}
+
 const User = mongoose.model('User',UserSchema);
 
 module.exports = User;

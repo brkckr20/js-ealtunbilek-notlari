@@ -10,22 +10,20 @@ POST {{BASE_URL}}/users
 Content-Type: application/json
 
 {
-    "isim" : "Burakas",
-    "userName" : "22adsasd",
-    "email" : "burak2s04asd@gsmaiwl.com",
-    "sifre" : "12345"
+    "isim" : "cetin1",
+    "userName" : "cetin1",
+    "email" : "buraka@gmasil.com",
+    "sifre" : "12234"
 }
 
 ###
-PATCH  {{BASE_URL}}/users/60b7480fefccb318b045455e
+PATCH  {{BASE_URL}}/users/60bbeadf5164033268d2a98d
 Content-Type: application/json
 
 {
-
-    "sifre" : "121231231",
-    "isim" : "nakosanas"
+    "isim" : "cetin-ceviz"
 }
 
 ###
-DELETE {{BASE_URL}}/users/60b7449b6f0a972f4ceb164f
+DELETE {{BASE_URL}}/users/60b76cb4f73d670990914b00
 Content-Type: application/json

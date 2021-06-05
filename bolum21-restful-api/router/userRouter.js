@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const User = require('../models/userModel');
-var createError = require('http-errors')
+var createError = require('http-errors');
+const bcrypt = require('bcrypt');
 
 router.get('/', async (req, res) => {
     const tumUserler = await User.find({})
@@ -16,10 +17,11 @@ router.get('/:id', (req, res, next) => {
 router.post('/', async (req, res, next) => {
     try {
         const eklenecekUser = new User(req.body);
-        const {error, value} = eklenecekUser.joiValidation(req.body);
-        if(error){
-            next(createError(400,error));   
-        }else{
+        eklenecekUser.sifre = await bcrypt.hash(eklenecekUser.sifre,8);
+        const { error, value } = eklenecekUser.joiValidation(req.body);
+        if (error) {
+            next(createError(400, error));
+        } else {
             const sonuc = await eklenecekUser.save();
             res.json(sonuc);
         }
@@ -36,33 +38,46 @@ router.patch('/:id', async (req, res, next) => {
          istemediğimiz alanları post ederse onları işleme
           almadan önce silme işlemi
     */
-    
-          delete req.body.createdAt;
-          delete req.body.updatedAt;
-          delete req.body.sifre;
 
+    delete req.body.createdAt;
+    delete req.body.updatedAt;
+    /* delete req.body.sifre; */
 
-
-    try {
-        const sonuc = await User.findByIdAndUpdate({
-            _id: req.params.id,
-        }, req.body, //güncellenecek alanlar. restful2.http içerisinden gelen
-            {
-                new: true, //güncellendikten sonraki halini getirmesi için
-                runValidators: true //güncelleme de doğrulamanın çalışması için gerekli
-            }
-        );
-        if (sonuc) {
-            return res.json(sonuc)
-        } else {
-            return res.json({
-                mesaj: "Güncellenecek kullanıcı bulunamadı..."
-            })
-        }
-    } catch (error) {
-        // console.log("Güncelleme sırasında hata : " + error);
-        next(createError(400, error));
+    //şifrenin güncellemede kriptolanması
+    if (req.body.hasOwnProperty('sifre')) {
+        req.body.sifre = await bcrypt.hash(req.body.sifre,8);
     }
+
+    const { error, value } = User.joiValidationForUpdate(req.body);
+
+    if (error) {
+        next(createError(400, error));
+        res.json({
+            "hata" : error.details[0].message,
+        })
+    } else {
+        try {
+            const sonuc = await User.findByIdAndUpdate({
+                _id: req.params.id,
+            }, req.body, //güncellenecek alanlar. restful2.http içerisinden gelen
+                {
+                    new: true, //güncellendikten sonraki halini getirmesi için
+                    runValidators: true //güncelleme de doğrulamanın çalışması için gerekli
+                }
+            );
+            if (sonuc) {
+                return res.json(sonuc)
+            } else {
+                return res.json({
+                    mesaj: "Güncellenecek kullanıcı bulunamadı..."
+                })
+            }
+        } catch (error) {
+            // console.log("Güncelleme sırasında hata : " + error);
+            next(createError(400, error));
+        }
+    }
+
 });
 
 //delete - silme işlemleri
@@ -79,10 +94,10 @@ router.delete('/:id', async (req, res, next) => {
             /* const hataNesnesi = new Error('Kullanıcı bulunamadı');
             hataNesnesi.hataKodu = 404;
             throw hataNesnesi; */
-            throw createError(404, 'Kullanıcı bulunamadı veya silinmiş....');
-            /* return res.status(404).json({
+          //  throw createError(404, 'Kullanıcı bulunamadı veya silinmiş....');
+            return res.status(404).json({
                 mesaj: "Kullanıcı bulunamadı veya silinmiş"
-            }) */
+            })
         }
     } catch (error) {
         next(createError(400, error));

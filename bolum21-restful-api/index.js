@@ -7,13 +7,13 @@ const userRouter = require('./router/userRouter');
 const app = express();
 
 app.use(express.json());
-app.use(express.urlencoded({ extended : true }))
+app.use(express.urlencoded({ extended: true }))
 
-app.use('/api/users',userRouter);
+app.use('/api/users', userRouter);
 
-app.get('/',(req,res) => {
+app.get('/', (req, res) => {
     res.status(200).json({
-        'mesaj' : "hoşgeldiniz"
+        'mesaj': "hoşgeldiniz"
     })
 });
 
@@ -28,6 +28,20 @@ app.post('/',(req,res) => {
 }); */
 
 app.use(hataMiddleware);
+
+/* 
+const bcrypt = require('bcrypt');
+
+const test = async () => {
+    const sifre = "brkckr20";
+    const hashedSifre = await bcrypt.hash(sifre,10);
+    console.log(sifre);
+    console.log(hashedSifre);
+
+    const sonuc = await bcrypt.compare(sifre,hashedSifre);
+    console.log(sonuc);
+}
+test(); */
 
 
 app.listen(3000, () => {

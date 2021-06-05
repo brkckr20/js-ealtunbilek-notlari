@@ -8,5 +8,5 @@ mongoose.connect('mongodb://localhost/restfulapi', {
         console.log("Veri tabanına bağlanıldı.");
     })
     .catch(hata => {
-        console.log("db hata");
+        console.log("db hata" + hata);
     });
