@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const User = require('../models/userModel');
-var createError = require('http-errors');
+const createError = require('http-errors');
 const bcrypt = require('bcrypt');
 
 router.get('/', async (req, res) => {
@@ -17,7 +17,7 @@ router.get('/:id', (req, res, next) => {
 router.post('/', async (req, res, next) => {
     try {
         const eklenecekUser = new User(req.body);
-        eklenecekUser.sifre = await bcrypt.hash(eklenecekUser.sifre,8);
+        eklenecekUser.sifre = await bcrypt.hash(eklenecekUser.sifre, 8);
         const { error, value } = eklenecekUser.joiValidation(req.body);
         if (error) {
             next(createError(400, error));
@@ -29,6 +29,26 @@ router.post('/', async (req, res, next) => {
         next(err);
     }
 });
+
+
+//login işlemi
+router.post('/giris', async (req, res, next) => {
+    console.log("giris post isteği alındı");
+    try {
+        const user = await User.girisYap(req.body.email, req.body.sifre);
+        const token = await user.generateToken();
+        res.json({
+            user : user,
+            token : token
+        })
+        console.log(user);
+    } catch (error) {
+        res.json({
+            "mesaj": "Email veya şifre hatalı..."
+        })
+        next(error)
+    }
+})
 
 
 //GÜNCELLEME İŞLEMİ
@@ -45,7 +65,7 @@ router.patch('/:id', async (req, res, next) => {
 
     //şifrenin güncellemede kriptolanması
     if (req.body.hasOwnProperty('sifre')) {
-        req.body.sifre = await bcrypt.hash(req.body.sifre,8);
+        req.body.sifre = await bcrypt.hash(req.body.sifre, 8);
     }
 
     const { error, value } = User.joiValidationForUpdate(req.body);
@@ -53,7 +73,7 @@ router.patch('/:id', async (req, res, next) => {
     if (error) {
         next(createError(400, error));
         res.json({
-            "hata" : error.details[0].message,
+            "hata": error.details[0].message,
         })
     } else {
         try {
@@ -94,7 +114,7 @@ router.delete('/:id', async (req, res, next) => {
             /* const hataNesnesi = new Error('Kullanıcı bulunamadı');
             hataNesnesi.hataKodu = 404;
             throw hataNesnesi; */
-          //  throw createError(404, 'Kullanıcı bulunamadı veya silinmiş....');
+            //  throw createError(404, 'Kullanıcı bulunamadı veya silinmiş....');
             return res.status(404).json({
                 mesaj: "Kullanıcı bulunamadı veya silinmiş"
             })

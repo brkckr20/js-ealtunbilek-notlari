@@ -29,6 +29,12 @@ const hataYakalayici = (err, req, res, next) => {
             mesaj : "Sabit bir alanı değiştirmek istediniz. Değiştirilemez!!!"
         })
     }
+    if (err.code) {
+        return res.json({
+            hataKodu : err.statusCode,
+            mesaj : Object.keys(err.keyValue)
+        })
+    }
 
 };
 

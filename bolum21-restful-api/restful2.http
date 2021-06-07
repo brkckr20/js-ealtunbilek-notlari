@@ -10,14 +10,24 @@ POST {{BASE_URL}}/users
 Content-Type: application/json
 
 {
-    "isim" : "cetin1",
-    "userName" : "cetin1",
-    "email" : "buraka@gmasil.com",
-    "sifre" : "12234"
+    "isim" : "sonuser1",
+    "userName" : "sonkullanici1",
+    "email" : "kellecili_16@hotmail1.com",
+    "sifre" : "122344"
 }
 
 ###
-PATCH  {{BASE_URL}}/users/60bbeadf5164033268d2a98d
+POST {{BASE_URL}}/users/giris
+Content-Type: application/json
+
+{
+    "email" : "kellecili_16@hotmail1.com",
+    "sifre" : "122344"
+}
+
+
+###
+PATCH  {{BASE_URL}}/users/60b628415144813688d0bb2b
 Content-Type: application/json
 
 {

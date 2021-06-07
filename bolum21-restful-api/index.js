@@ -1,6 +1,7 @@
 const express = require('express');
 require('./db/dbConnection');
 const hataMiddleware = require('./middleware/hataMiddleware');
+const jwt = require('jsonwebtoken');
 
 const userRouter = require('./router/userRouter');
 
@@ -43,6 +44,26 @@ const test = async () => {
 }
 test(); */
 
+
+//jwt json web token
+/* function test(){
+    const token = jwt.sign(
+    { //başarılı olma
+        _userID : "kullaniciid",
+        isAdmin : true,
+        isActive : true
+    },'123456', //güvenlik anahtar kelimesi - token geçerliliği buna göre belirlenir. Önemlidir
+    {
+        expiresIn : '2h' // geçerlilik süresi - 2 saat dedik
+    }
+    );
+
+    console.log(token);
+    const sonuc =jwt.verify(token , '123456');
+    console.log(sonuc);
+}
+test();
+ */
 
 app.listen(3000, () => {
     console.log("3000 portundan server dinleniyor.");
