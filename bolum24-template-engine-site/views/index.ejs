@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJS kullanımı</title>
+</head>
+<body>
+    <p>Ejs dersleri</p>
+    <h2> <%= yas %> </h2> <!-- <%  %> ejs tagları --> 
+    <h2> <%= ders %> </h2>  <!-- = içinde ne varsa doğrudan yazar. -->
+    <h2> <%- renkler %> </h2> <!-- html taglarının olmaması için - ile kullanılır -->
+    <h2> <%= renkler %> </h2>
+    <p><%= kisiler %></p>
+
+    <% kisiler.forEach((kisi) => { %> <!-- php kullanımına çok benziyor -->
+        <p> <%- kisi.ad %>  </p>
+
+    <% }) %> 
+        <ul>
+        <% kisiler.forEach(element => { %>
+            <li><%- element.id %> </li>
+        <% }) %>
+        </ul>
+    
+</body>
+</html>
