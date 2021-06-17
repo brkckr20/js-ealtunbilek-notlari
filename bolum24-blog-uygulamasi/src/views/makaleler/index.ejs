@@ -1,0 +1,22 @@
+<%- include('../partials/_header');  %> 
+
+<div class="row">   
+<% makaleler.forEach((makale,index) => { %>
+    <div class="col-lg-4">
+        <%- include('../partials/_makale_card',{ makale, index : index}); %>
+    </div>
+<% }) %>
+</div>
+
+
+
+<!-- sayfalama mantığı -->
+
+<%
+    const sayfaSayisi = sayfalama['x-wp-totalpages'];
+    const toplamVeriSayisi = sayfalama['x-wp-total'];
+    //console.log(sayfaSayisi,toplamVeriSayisi);
+    const aktifSayfam = aktifSayfa; //sağdaki değer controllerdan gönderildi.
+ %> 
+<%- include('../partials/_pagination',{sayfaSayisi,toplamVeriSayisi,aktifSayfam});  %> 
+

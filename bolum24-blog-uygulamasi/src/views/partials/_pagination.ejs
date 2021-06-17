@@ -1,0 +1,26 @@
+<% 
+    const aktif = aktifSayfam;
+    const onceki = parseInt(aktifSayfa) - 1;
+    const sonraki = parseInt(aktifSayfa) + 1;
+    const toplamSayfaSayisi = sayfaSayisi;
+%> 
+
+<% if (toplamSayfaSayisi>1) { %>
+    <div class="row">
+        <div class="col-lg-12">
+            <nav class="mb-2" aria-label="...">
+                <ul class="pagination">
+                <li class="page-item <%- aktifSayfam == 1 ? 'disabled' : '' %> ">
+                    <a class="page-link" <%= aktif != 1 ? 'href=/?page='+onceki : '' %>  tabindex="-1" aria-disabled="true">Önceki</a>
+                </li>
+                    <% for( let index = 1; index <= sayfaSayisi; index++ ) { %>
+                        <li class="page-item <%- index == aktifSayfam ? 'active' : '' %> "><a class="page-link" href="/?page=<%- index %>"><%- index %></a></li>
+                    <% } %>
+                <li class="page-item <%- aktifSayfam == toplamSayfaSayisi ? 'disabled' : '' %>">
+                    <a class="page-link" <%= aktif != toplamSayfaSayisi ? 'href=/?page='+sonraki : '' %>>Sonraki</a>
+                </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+<% } %>

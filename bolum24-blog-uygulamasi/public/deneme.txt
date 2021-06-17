@@ -1,0 +1,2 @@
+bu dosya statik klasör konusu anlatılırken eklendi. 
+statik klasörlere adres çubuğundan erişemeyiz ama klasör içindeki dosyalara klasör adı olmadan erişebiliriz
