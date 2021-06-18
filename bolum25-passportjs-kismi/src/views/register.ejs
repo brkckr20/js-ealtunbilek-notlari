@@ -6,50 +6,50 @@
             <div class="col-lg-7">
                 <div class="p-5">
                     <div class="text-center">
-                        <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                        <h1 class="h4 text-gray-900 mb-4">Kullanıcı Oluştur</h1>
                     </div>
-                    <form class="user">
+                    <form class="user" action="/register" method="POST">
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                    placeholder="First Name">
+                                <input type="text" name="ad" class="form-control form-control-user" id="exampleFirstName"
+                                    placeholder="Adınız">
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                    placeholder="Last Name">
+                                <input type="text" name="soyad" class="form-control form-control-user" id="exampleLastName"
+                                    placeholder="Soyadınız">
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                placeholder="Email Address">
+                            <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail"
+                                placeholder="Email Adresiniz">
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="password" class="form-control form-control-user"
-                                    id="exampleInputPassword" placeholder="Password">
+                                <input type="password" name="parola" class="form-control form-control-user"
+                                    id="exampleInputPassword" placeholder="Parolanız">
                             </div>
                             <div class="col-sm-6">
-                                <input type="password" class="form-control form-control-user"
-                                    id="exampleRepeatPassword" placeholder="Repeat Password">
+                                <input type="password" name="parolatekrar" class="form-control form-control-user"
+                                    id="exampleRepeatPassword" placeholder="Parolanızı tekrar yazınız">
                             </div>
                         </div>
-                        <a href="login.html" class="btn btn-primary btn-user btn-block">
-                            Register Account
-                        </a>
+                        <button type="submit" class="btn btn-primary btn-user btn-block">
+                            Hesap Oluştur
+                        </button>
                         <hr>
                         <a href="index.html" class="btn btn-google btn-user btn-block">
-                            <i class="fab fa-google fa-fw"></i> Register with Google
+                            <i class="fab fa-google fa-fw"></i> Google ile giriş yap
                         </a>
                         <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                            <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                            <i class="fab fa-facebook-f fa-fw"></i> Facebook ile giriş yap
                         </a>
                     </form>
                     <hr>
                     <div class="text-center">
-                        <a class="small" href="forgot-password.html">Forgot Password?</a>
+                        <a class="small" href="/forgot_password">Parola Sıfırla</a>
                     </div>
                     <div class="text-center">
-                        <a class="small" href="login.html">Already have an account? Login!</a>
+                        <a class="small" href="/login">Hesabın va mı? Giriş Yap!</a>
                     </div>
                 </div>
             </div>
