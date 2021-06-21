@@ -47,6 +47,7 @@ router.post('/giris', async (req, res, next) => {
             "mesaj": "Email veya şifre hatalı..."
         })
         next(error)
+        console.log("hata cıktı lo")
     }
 })
 

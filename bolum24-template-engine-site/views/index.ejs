@@ -7,6 +7,7 @@
     <title>EJS kullanımı</title>
 </head>
 <body>
+    <%- include ('_header') %> 
     <p>Ejs dersleri</p>
     <h2> <%= yas %> </h2> <!-- <%  %> ejs tagları --> 
     <h2> <%= ders %> </h2>  <!-- = içinde ne varsa doğrudan yazar. -->
@@ -23,6 +24,14 @@
             <li><%- element.id %> </li>
         <% }) %>
         </ul>
-    
+
+        <% if (yas>30) { %>
+         <h3>Yaş 30dan büyük</h3>
+        <% } else { %>
+         <h3>Yaş 30dan küçük</h3>
+         <%  } %> 
+    <%- include('_footer',{
+        site : "https://www.google.com"
+    })  %> <!-- veri göndermek istersek obje olarak gönderebiliriz -->
 </body>
 </html>

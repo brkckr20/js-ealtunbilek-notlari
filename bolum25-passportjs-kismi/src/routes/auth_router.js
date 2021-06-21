@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const authController = require('../controllers/auth_controller');
+const validatorMiddleware = require('../middlewares/validation_middelware')
 
 router.get('/login', authController.loginFormunuGoster);
 
@@ -7,7 +8,7 @@ router.post('/login', authController.loginOl);
 
 router.get('/register', authController.registerFormunuGoster);
 
-router.post('/register', authController.registerEkle);
+router.post('/register', validatorMiddleware.validateNewUser(), authController.registerEkle);
 
 router.get('/forgot_password', authController.forgotPasswordFormunuGoster); // şu istek gelirse bunu yap
 

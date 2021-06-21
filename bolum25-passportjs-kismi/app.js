@@ -1,13 +1,44 @@
 const dotenv = require('dotenv').config();
 const express = require('express');
 const app = express();
-const path = require('path')
+const path = require('path');
+const session = require('express-session');
+const flash = require('connect-flash');
+const passport = require('passport');
 
 const ejs = require('ejs');
 const expressLayouts = require('express-ejs-layouts');
 
 //veritabanı bağlantısı
 require('./src/config/database');
+
+const MongoDBStore = require('connect-mongodb-session')(session);
+const sessionStore = new MongoDBStore({
+    uri: process.env.MONGODB_CONNECTION_STRING,
+    collection: 'sessionlar'
+});
+
+
+//session ve flash message
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false, // 
+    saveUninitialized: true, //parametreler kullanılmalıdır.
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24 //cookieyi 5 sn sonra sil demiş olduk
+    },
+    store: sessionStore
+}));
+app.use(flash());
+app.use((req, res, next) => {
+    res.locals.validation_error = req.flash('validation_error');
+    res.locals.success_message = req.flash('success_message');
+    next();
+})
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 //routerlerin include edilmesi
 const authRouter = require('./src/routes/auth_router');
@@ -35,5 +66,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(process.env.PORT, () => {
-    console.log(`Server ${process.env.PORT} portundan çalışıyor...`);
+    console.log(`Server ${process.env.HOST}:${process.env.PORT} portundan çalışıyor...`);
 });

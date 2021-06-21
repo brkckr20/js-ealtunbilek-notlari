@@ -3,10 +3,20 @@ const app = express();
 const path = require('path');
 
 const ejs = require('ejs');
+const expressLayouts = require('express-ejs-layouts');
+
 
 app.set('view engine', 'ejs'); // view engine yerine ejs kullan demiş olduk
 //ana dizinde index.ejs olusturuldu onun üzerinde çalışmalar yapılacak
 
+app.set('views',path.resolve(__dirname,'yenidefaultview')); //default olarak views klasörünü isterdi biz bu şekilde kullanarak varsayilan view klasöürünü değiştirmiş olduk
+
+
+app.use(expressLayouts);
+app.set('layout',path.resolve(__dirname,'yenidefaultview/layout_yeni'));
+/**
+ * varsayılan layout dosyasının değiştirme işlemi
+ */
 
 app.get('/', (req, res) => {
     /* res.send({
