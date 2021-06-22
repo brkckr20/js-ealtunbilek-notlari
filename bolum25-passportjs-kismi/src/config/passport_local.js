@@ -23,15 +23,21 @@ module.exports = function (passport) {
     }));
 
 
-    passport.serializeUser(function(user, done) {
+    passport.serializeUser(function (user, done) {
         console.log("Sessiona kaydedildi : " + user.id);
         done(null, user.id);
-      });
-      
-      passport.deserializeUser(function(id, done) {
-        console.log("Sessiona kaydedilen id db de bulundu : ");
-        User.findById(id, function(err, user) {
-          done(err, user);
+    });
+
+    passport.deserializeUser(function (id, done) {
+       // console.log("Sessiona kaydedilen id db de bulundu : ");
+        User.findById(id, function (err, user) {
+            const yeniUser = {
+                id : user.id,
+                email : user.email,
+                ad : user.ad,
+                soyad : user.soyad,
+            }
+            done(err, yeniUser);
         });
-      });
+    });
 }
