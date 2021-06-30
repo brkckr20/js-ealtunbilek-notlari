@@ -7,5 +7,5 @@ mongoose.connect(process.env.MONGODB_CONNECTION_STRING,
         useNewUrlParser : true,
         useFindAndModify : true
     })
-    .then(console.log("Vertabanı bağlantısı başarılı"))
+    .then(console.log("Veritabanı bağlantısı başarılı"))
     .catch((hata) => { console.log(`Veri tabanı bağlantı hatası ${hata}`); })
